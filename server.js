@@ -6,7 +6,11 @@ const ouatRouter = require('./src/routes/routes');
 const app = express();
 const PORT = 3000;
 
-app.set('view engine', 'ejs');
-app.use(express.static(Path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'src', 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', oautRouter);
+app.use('/', ouatRouter);
+
+app.listen(PORT, () => {
+    console.log(`Server keyrir á http://localhost:${PORT}`);
+});
