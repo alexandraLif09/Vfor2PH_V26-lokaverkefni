@@ -6,13 +6,18 @@
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",
-    "sass": "sass public/scss/main.scss public/css/styles.css --watch"    
+    "sass": "sass public/scss/main.scss public/css/styles.css --watch"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
+    "ejs": "^5.0.1",
     "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "node": "^25.8.1",
+    "sass": "^1.98.0"
   }
 }
