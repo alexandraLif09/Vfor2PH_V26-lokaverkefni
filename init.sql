@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS homes (
         FOREIGN KEY(placeID)
         REFERENCES places(id)
         ON DELETE RESTRICT
-)
+);
 
 CREATE TABLE IF NOT EXISTS characters (
     id SERIAL PRIMARY KEY,
