@@ -1,18 +1,32 @@
 <% include('partials/header') %>
 <section>
     <div>
-        <p>Hæ!</p>
+        <h2></h2>
+        <p></p>
+        <a href="/"></a>
     </div>
 </section>
+
 <section>
-    <div class="grid">
-        <div class="personur">
-            <div class="myndir"></div>
-            <div class="info">
-                <h4>Emma Swan</h4>
-                <p>Lifandi</p>
+    <h3></h3>
+    <div>
+        <% if (people && people.length > 0) { %>
+            <% people.forEach(people => { %>
+                <div class="card">
+                    <div class="img"></div>
+                    <div class="info">
+                        <h4><%= people.title %></h4>
+                    </div>
+                </div>
+            <% }) %>
+        <% } else { %>
+            <div class="card">
+                <div class="info">
+                    <h4>Fann ekki upplýsingar</h4>
+                    <p>Bættu við upplýsingum</p>
+                </div>
             </div>
-        </div>
+        <% } %>
     </div>
 </section>
 
