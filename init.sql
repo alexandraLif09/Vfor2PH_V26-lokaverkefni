@@ -39,6 +39,7 @@ CREATE TABLE IF NOT EXISTS people (
     alive BIT NOT NULL,
     placeID INT NOT NULL,
     characterID INT NOT NULL,
+    image_url VARCHAR(500)
 
     CONSTRAINT fk_place
         FOREIGN KEY(placeID)
