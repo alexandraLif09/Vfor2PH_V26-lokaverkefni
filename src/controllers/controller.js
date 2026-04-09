@@ -14,6 +14,50 @@ const getHomePage = async (req, res) => {
     };
 };
 
+const getPeopleDetails = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const people = await peopleService.getRecipeById(id);
+
+        if (!people) {
+            return res.status(404).send('Fann ekki manneskju.');
+        }
+
+        res.render('details', {
+            title: people.title,
+            people: people
+        });
+    } catch (error) {
+        console.error('Villa við að sækja staka manneskju.', error);
+        res.status(500).send('Kerfisvilla - get ekki hlaðað manneskju. (500)');
+    }
+};
+
+const getAddPersonForm = (req, res) => {
+    res.render('add-person', {
+        title: 'Bæta við manneskju'
+    });
+};
+
+const createNewPerson = async (req, res) => {
+    try {
+        const {name, alive, placeID, characterID, image_url} = req.body;
+        if (!name) {
+            return res.status(400).send('Nafn á manneskju má ekki vera tómt!');
+        }
+
+        const newPerson = await peopleService.createPerson(name, alive, placeID, characterID, image_url);
+
+        res.redirect(`/person/${newPerson.id}`);
+    } catch (error) {
+        console.error('Villa við að búa til manneskju:', error);
+        res.status(500).send('Kerfisvilla - Tókst ekki að vista uppskrift');
+    }
+};
+
 module.exports = {
-    getHomePage
+    getHomePage,
+    getPeopleDetails,
+    getAddPersonForm,
+    createNewPerson
 };
