@@ -10,14 +10,14 @@ const getHomePage = async (req, res) => {
         });
     } catch (error) {
         console.error('Villa við að sækja manneskju', error);
-        res.status(500).send('Kerfisvilla - Get ekki hlaðað manneskju');
+        res.status(500).send('Kerfisvilla - Get ekki hlaðið manneskju');
     };
 };
 
 const getPeopleDetails = async (req, res) => {
     try {
         const id = req.params.id;
-        const people = await peopleService.getRecipeById(id);
+        const people = await peopleService.getPeopleById(id);
 
         if (!people) {
             return res.status(404).send('Fann ekki manneskju.');
@@ -46,7 +46,7 @@ const createNewPerson = async (req, res) => {
             return res.status(400).send('Nafn á manneskju má ekki vera tómt!');
         }
 
-        const newPerson = await peopleService.createPerson(name, alive, placeID, characterID, image_url);
+        const newPerson = await peopleService.createPeople(name, alive, placeID, characterID, image_url);
 
         res.redirect(`/person/${newPerson.id}`);
     } catch (error) {

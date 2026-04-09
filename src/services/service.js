@@ -10,7 +10,7 @@ const getPeopleById = async (id) => {
     if (result.rows.length === 0) {
         return null;
     }
-    return resourceLimits.rows[0];
+    return result.rows[0];
 };
 
 const createPeople = async (name, alive, placeID, characterID, image_url) => {

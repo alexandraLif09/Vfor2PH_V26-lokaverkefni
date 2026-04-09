@@ -4,7 +4,7 @@ const controller = require('../controllers/controller');
 
 router.get('/', controller.getHomePage);
 router.get('/person/ny', controller.getAddPersonForm);
-router.get('/person/ny', controller.createNewPerson);
-router.get('/person/:id', controller.getPersonDetails);
+router.post('/person/ny', controller.createNewPerson);
+router.get('/person/:id', controller.getPeopleDetails);
 
 module.exports = router;
