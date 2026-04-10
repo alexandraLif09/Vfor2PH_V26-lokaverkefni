@@ -1,0 +1,32 @@
+<%- include('partials/header') %>
+
+<section class="featured">
+    <div>
+        <h2>Bæta við nýrri manneskju</h2>
+        <form action="/person/ny">
+            <div>
+                <label for="name">Nafn persónar</label>
+                <input type="text" id="name" name="name">
+            </div>
+            <div>
+                <label for="alive">lifandi?</label>
+                <input type="boolean" id="alive" name="alive">
+            </div>
+            <div>
+                <label for="placeID">Hvar býr persónan?</label>
+                <input type="text" id="" name="">
+            </div>
+            <div>
+                <label for="characterID">Hvað heitir sögupersónan þeirra?</label>
+                <input type="text" id="characterID" name="characterID">
+            </div>
+            <div>
+                <label for="image_url">Slóð á mynd</label>
+                <input type="text" id="image_url" name="image_url" placeholder="https://...">
+            </div>
+            <button type="submit" class="btn-primary">Vista persónu</button>
+        </form>
+    </div>
+</section>
+
+<%- include('partials/footer') %>
