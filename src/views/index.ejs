@@ -1,43 +1,41 @@
 <% include('partials/header') %>
-<section>
-    <div>
-        <h2></h2>
-        <p></p>
-        <a href="/"></a>
-    </div>
-</section>
+    <section>
+        <div>
+            <h2></h2>
+            <p></p>
+            <a href="/"></a>
+        </div>
+    </section>
 
-<section>
-    <h3></h3>
-    <div class="grid">
-        <% if (people && people.length > 0) { %>
-            <% people.forEach(people => { %>
-                <div class="card">
-                    <% if (people.image_url) { %>
-                    <div class="img"></div>
-                    <% } else { &>
-                        <div class="img placeholder-img"></div>
-                    <% } %>
-                    <div class="info">
-                        <h4>
-                            <%= people.name %>
-                        </h4>
-                        <p>alive? <%= people.alive %></p>
-                        <a href="/people/<%= people.id%>">
-                            Skoða nánar
-                        </a>
-                    </div>
-                </div>
-            <% }) %>
-                <% } else { %>
+    <section>
+        <h3></h3>
+        <div class="grid">
+            <% if (people && people.length > 0) { %>
+                <% people.forEach(people => { %>
                     <div class="card">
-                        <div class="info">
-                            <h4>Fann ekki upplýsingar</h4>
-                            <p>Bættu við upplýsingum</p>
-                        </div>
+                        <% if (people.image_url) { %>
+                            <div class="img"></div>
+                            <% } else { %>
+                                <div class="img placeholder-img"></div>
+                                <% } %>
+                                    <div class="info">
+                                        <h4>
+                                            <%= people.name %>
+                                        </h4>
+                                        <p>alive? <%= people.alive %></p>
+                                        <a href="/people/<%= people.id%>">Skoða nánar</a>
+                                    </div>
                     </div>
-                <% } %>
-    </div>
-</section>
+                    <% }) %>
+                        <% } else { %>
+                            <div class="card">
+                                <div class="info">
+                                    <h4>Fann ekki upplýsingar</h4>
+                                    <p>Bættu við upplýsingum</p>
+                                </div>
+                            </div>
+                            <% } %>
+        </div>
+    </section>
 
-<%- include('partials/footer') %>
+    <%- include('partials/footer') %>
