@@ -14,7 +14,9 @@
                 <% people.forEach(person=> { %>
                     <div class="card">
                         <% if (person.image_url) { %>
-                            <div class="img"></div>
+                            <div class="img">
+                                <img src="<%= person.image_url %>" alt="<%= person.name %>">
+                            </div>
                             <% } else { %>
                                 <div class="img placeholder-img"></div>
                                 <% } %>
