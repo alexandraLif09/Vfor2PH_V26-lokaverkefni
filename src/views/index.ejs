@@ -10,20 +10,21 @@
     <section>
         <h3></h3>
         <div class="grid">
-            <% if (people && people.length > 0) { %>
-                <% people.forEach(people => { %>
+            <% if (people && people.length> 0) { %>
+                <% people.forEach(person=> { %>
                     <div class="card">
-                        <% if (people.image_url) { %>
+                        <% if (person.image_url) { %>
                             <div class="img"></div>
                             <% } else { %>
                                 <div class="img placeholder-img"></div>
                                 <% } %>
                                     <div class="info">
                                         <h4>
-                                            <%= people.name %>
+                                            <%= person.name %>
                                         </h4>
-                                        <p>alive? <%= people.alive %></p>
-                                        <a href="/people/<%= people.id%>">Skoða nánar</a>
+                                        <p>alive? <%= person.alive %>
+                                        </p>
+                                        <a href="/person/<%= person.id %>">Skoða nánar</a>
                                     </div>
                     </div>
                     <% }) %>

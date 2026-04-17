@@ -1,0 +1,24 @@
+<%- include('partials/header') %>
+
+    <section class="featured">
+        <div>
+            <h2><%= people.name %></h2>
+            <p>Þau eru lifandi <%= people.alive %></p>
+            <p>Hvar bjuggu þau í fyrstu bölvuninni <%= people.placeID %></p>
+            <p>Hvað heitir karakterinn þeirra? <%= people.characterID %></p>
+
+            <% if (people.image_url) { %>
+                <div>
+                    <img src="<%= people.image_url %>" alt="<%= people.name %>">
+                </div>
+            <% } else {%>
+            <div class="placeholder-img"></div> 
+            <% } %>
+
+            <p>Hér mun koma manneskja þegar það er bætt við</p>
+            <br>
+            <a href="/" class="btn-primary">
+                Til baka á forsíðu
+            </a>
+        </div>
+    </section>

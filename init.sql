@@ -1,3 +1,9 @@
+DROP TABLE IF EXISTS people CASCADE;
+DROP TABLE IF EXISTS characters CASCADE;
+DROP TABLE IF EXISTS homes CASCADE;
+DROP TABLE IF EXISTS places CASCADE;
+DROP TABLE IF EXISTS users CASCADE;
+
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     email VARCHAR(255) UNIQUE,
@@ -36,10 +42,10 @@ CREATE TABLE IF NOT EXISTS characters (
 CREATE TABLE IF NOT EXISTS people (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    alive BIT NOT NULL,
+    alive BOOLEAN NOT NULL,
     placeID INT NOT NULL,
     characterID INT NOT NULL,
-    image_url VARCHAR(500)
+    image_url VARCHAR(500),
 
     CONSTRAINT fk_place
         FOREIGN KEY(placeID)
@@ -48,23 +54,16 @@ CREATE TABLE IF NOT EXISTS people (
 
     CONSTRAINT fk_character
         FOREIGN KEY(characterID)
-        REFERENCES Characters(id)
+        REFERENCES characters(id)
         ON DELETE RESTRICT
 );
 
-TRUNCATE TABLE users RESTART IDENTITY;
-TRUNCATE TABLE places RESTART IDENTITY;
-TRUNCATE TABLE homes RESTART IDENTITY;
-TRUNCATE TABLE characters RESTART IDENTITY;
-TRUNCATE TABLE people RESTART IDENTITY;
-
-
+TRUNCATE TABLE people, characters, homes, places, users RESTART IDENTITY CASCADE;
 
 INSERT INTO places (name) 
 VALUES ('Storybrooke'), ('Enchanted Forest'), 
     ('Neverland'), ('Wonderland'), 
-    ('Oz'), ('Underworld'), 
-    ('DunBroch'), ('Agrabah'), ('Wish Realm');
+    ('Oz'), ('Underworld');
 
 INSERT INTO homes (name, placeID)
 VALUES ('Swan house', 1), ('The Mills House', 1), 
@@ -83,22 +82,24 @@ VALUES ('The Savior', 1), ('Truest beliver', 2), ('Evil Queen', 3),
     ('Felix', 11);
 
 INSERT INTO people (name, alive, placeID, characterID, image_url)
-VALUES ('Emma Swan', 'True', 1, 1, '', ), 
-    ('Henry Mills', 'True', 1, 2, ''),
-    ('Regina Mills', 'True', 1, 3, ''),
-    ('Killian Jones', 'True', 2, 4, ''),
-    ('Mary Margaret', 'True', 1, 5, ''), 
-    ('David Nolan', 'True', 1, 6, ''),
-    ('Mr. Gold', 'False', 1, 7, ''),
-    ('Belle', 'False', 1, 8, ''),
-    ('Reul Ghorm', 'True', 1, 9, ''),
-    ('Jefferson', 'True', 1, 10, ''),
-    ('Sheriff graham Humbert', 'False', 1, 11, ''),
-    ('Zelena', 'True', 5, 12, ''), 
-    ('Archie Hopper', 'True', 1, 13, ''),
-    ('Robin Hood', 'False', 2, 14, ''), 
-    ('Neal Cassidy', 'False', 1, 15, ''),
-    ('Ruby', 'True', 1, 16, ''),
-    ('Widow Lucas', 'True', 1, 17, ''),
-    ('Malcolm', 'False', 2, 18, ''),
-    ('Felix', 'False', 3, 19, '');
+VALUES ('Emma Swan', TRUE, 1, 1, '/images/Emma'), 
+    ('Henry Mills', TRUE, 1, 2, '/images/Henry'),
+    ('Regina Mills', TRUE, 1, 3, '/images/Regina'),
+    ('Killian Jones', TRUE, 2, 4, '/images/Killian'),
+    ('Mary Margaret', TRUE, 1, 5, '/images/Mary'), 
+    ('David Nolan', TRUE, 1, 6, '/images/David'),
+    ('Mr. Gold', FALSE, 1, 7, '/images/Gold'),
+    ('Belle', FALSE, 1, 8, '/images/Belle'),
+    ('Reul Ghorm', TRUE, 1, 9, '/images/Reul'),
+    ('Jefferson', TRUE, 1, 10, '/images/Jefferson'),
+    ('Sheriff graham Humbert', FALSE, 1, 11, '/images/Graham'),
+    ('Zelena Mills', TRUE, 5, 12, '/images/Zelena'), 
+    ('Archie Hopper', TRUE, 1, 13, '/images/Archie'),
+    ('Robin Hood', FALSE, 2, 14, '/images/Robin'), 
+    ('Neal Cassidy', FALSE, 1, 15, '/images/Neal'),
+    ('Ruby', TRUE, 1, 16, '/images/Ruby'),
+    ('Widow Lucas', TRUE, 1, 17, '/images/Granny'),
+    ('Malcolm', FALSE, 2, 18, '/images/Malcolm'),
+    ('Felix', FALSE, 3, 19, '/images/Felix');
+
+    SELECT COUNT(*) FROM people;
