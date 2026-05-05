@@ -3,9 +3,10 @@
     <section class="featured">
         <div>
             <h2><%= people.name %></h2>
-            <p>Þau eru lifandi: <%= people.alive %></p>
-            <p>Hvar bjuggu þau í fyrstu bölvuninni <%= people.placeID %></p>
-            <p>Hvað heitir karakterinn þeirra? <%= people.characterID %></p>
+            <p>Eru þau lifandi? <%= people.alive ? 'Já' : 'Nei' %></p>
+            <p>Hvar bjuggu þau í fyrstu bölvuninni? <%= people.place_name %></p>
+            <p>Hvað heitir karakterinn þeirra? <%= people.character_name %></p>
+            <p>Heimili karakterins: <%= people.home_name %></p>
 
             <% if (people.image_url) { %>
                 <div>
@@ -15,7 +16,6 @@
             <div class="placeholder-img"></div> 
             <% } %>
 
-            <p>Hér mun koma manneskja þegar það er bætt við</p>
             <br>
             <a href="/" class="btn-primary">
                 Til baka á forsíðu

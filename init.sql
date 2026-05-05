@@ -70,7 +70,7 @@ VALUES ('Swan house', 1), ('The Mills House', 1),
     ('Evil Queens Palace', 2), ('The Jolly Roger', 2),
     ('the Royal Castle', 2), ('The Dark Castle', 2), 
     ('Tulip Pod Chamber', 2), ('A cottage', 2), ('The Forest', 2),
-    ('A cottage', 5), ('Neverland camp', 4);
+    ('A cottage', 5), ('Neverland camp', 4), ('A cottage', 1);
 
 INSERT INTO characters (name, homeID)
 VALUES ('The Savior', 1), ('Truest beliver', 2), ('Evil Queen', 3),
@@ -79,14 +79,14 @@ VALUES ('The Savior', 1), ('Truest beliver', 2), ('Evil Queen', 3),
     ('Mad Hatter', 8), ('The Huntsman', 9), ('Wicked Witch of the West', 10),
     ('Jiminy Cricket', 9), ('Robin Hood', 9), ('Baelfire', 8), 
     ('Red Riding Hood', 8), ('Granny', 8), ('Peter Pan', 11),
-    ('Felix', 11);
+    ('Felix', 11), ('Pinocchio', 12);
 
 INSERT INTO people (name, alive, placeID, characterID, image_url)
 VALUES ('Emma Swan', TRUE, 1, 1, '/images/Emma.webp'), 
     ('Henry Mills', TRUE, 1, 2, '/images/Henry.webp'),
     ('Regina Mills', TRUE, 1, 3, '/images/regina.jpg'),
     ('Killian Jones', TRUE, 2, 4, '/images/Killian.webp'),
-    ('Mary Margaret', TRUE, 1, 5, '/images/Mary.webp'), 
+    ('Mary Margaret', TRUE, 1, 5, '/images/Mary.jpg'), 
     ('David Nolan', TRUE, 1, 6, '/images/David.webp'),
     ('Mr. Gold', FALSE, 1, 7, '/images/Gold.webp'),
     ('Belle', FALSE, 1, 8, '/images/Belle.webp'),
@@ -94,12 +94,12 @@ VALUES ('Emma Swan', TRUE, 1, 1, '/images/Emma.webp'),
     ('Jefferson', TRUE, 1, 10, '/images/Jefferson.webp'),
     ('Sheriff graham Humbert', FALSE, 1, 11, '/images/Graham.webp'),
     ('Zelena Mills', TRUE, 5, 12, '/images/Zelena.webp'), 
-    ('Archie Hopper', TRUE, 1, 13, '/images/Archie.jpg'),
+    ('Archie Hopper', TRUE, 1, 13, '/images/Archie.webp'),
     ('Robin Hood', FALSE, 2, 14, '/images/Robin.webp'), 
     ('Neal Cassidy', FALSE, 1, 15, '/images/Neal.jpg'),
     ('Ruby', TRUE, 1, 16, '/images/Ruby.webp'),
-    ('Widow Lucas', TRUE, 1, 17, '/images/Granny1.webp'),
-    ('Malcolm', FALSE, 2, 18, '/images/Malcolm.jpg'),
+    ('Widow Lucas', TRUE, 1, 17, '/images/Granny.webp'),
+    ('Malcolm', FALSE, 2, 18, '/images/Peter.avif'),
     ('Felix', FALSE, 3, 19, '/images/Felix.gif');
 
     SELECT COUNT(*) FROM people;

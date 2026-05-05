@@ -9,16 +9,29 @@
                     <input type="text" id="name" name="name">
                 </div>
                 <div>
-                    <label for="alive">lifandi?</label>
-                    <input type="text" id="alive" name="alive">
+                    <label for="alive">Lifandi?</label>
+                    <select id="alive" name="alive">
+                        <option value="true">Já</option>
+                        <option value="false">Nei</option>
+                    </select>
                 </div>
                 <div>
                     <label for="placeID">Hvar býr persónan?</label>
-                    <input type="text" id="placeID" name="placeID">
+                    <select id="placeID" name="placeID">
+                        <option value="">Veldu staðsetningu</option>
+                        <% places.forEach((place) => { %>
+                            <option value="<%= place.id %>"><%= place.name %></option>
+                        <% }) %>
+                    </select>
                 </div>
                 <div>
                     <label for="characterID">Hvað heitir sögupersónan þeirra?</label>
-                    <input type="text" id="characterID" name="characterID">
+                    <select id="characterID" name="characterID">
+                        <option value="">Veldu karakter</option>
+                        <% characters.forEach((character) => { %>
+                            <option value="<%= character.id %>"><%= character.name %></option>
+                        <% }) %>
+                    </select>
                 </div>
                 <div>
                     <label for="image_url">Slóð á mynd</label>

@@ -24,7 +24,7 @@ const getPeopleDetails = async (req, res) => {
         }
 
         res.render('details', {
-            title: people.title,
+            title: people.name,
             people: people
         });
     } catch (error) {
@@ -33,25 +33,43 @@ const getPeopleDetails = async (req, res) => {
     }
 };
 
-const getAddPersonForm = (req, res) => {
-    res.render('add-person', {
-        title: 'Bæta við manneskju'
-    });
+const getAddPersonForm = async (req, res) => {
+    try {
+        const places = await peopleService.getAllPlaces();
+        const characters = await peopleService.getAllCharacters();
+
+        res.render('add-person', {
+            title: 'Bæta við manneskju',
+            places,
+            characters
+        });
+    } catch (error) {
+        console.error('Villa við að sækja valmöguleika fyrir formið:', error);
+        res.status(500).send('Kerfisvilla - Get ekki hlaðið formið');
+    }
 };
 
 const createNewPerson = async (req, res) => {
     try {
         const {name, alive, placeID, characterID, image_url} = req.body;
+        const aliveBool = alive === 'true' || alive === 'on';
+        const placeId = parseInt(placeID, 10);
+        const characterId = parseInt(characterID, 10);
+
         if (!name) {
             return res.status(400).send('Nafn á manneskju má ekki vera tómt!');
         }
 
-        const newPerson = await peopleService.createPeople(name, alive, placeID, characterID, image_url);
+        if (!placeId || !characterId) {
+            return res.status(400).send('Veldu gilda staðsetningu og karakter.');
+        }
+
+        const newPerson = await peopleService.createPeople(name, aliveBool, placeId, characterId, image_url);
 
         res.redirect(`/person/${newPerson.id}`);
     } catch (error) {
         console.error('Villa við að búa til manneskju:', error);
-        res.status(500).send('Kerfisvilla - Tókst ekki að vista uppskrift');
+        res.status(500).send('Kerfisvilla - Tókst ekki að vista manneskju');
     }
 };
 
