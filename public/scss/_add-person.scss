@@ -1,0 +1,82 @@
+.featured {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  
+  > div {
+    max-width: 600px;
+    margin: 0 auto;
+    
+    h2 {
+      font-family: $font-heading;
+      color: $text-dark;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  
+  > div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  label {
+    font-family: $font-main;
+    font-weight: 500;
+    color: $text-dark;
+    font-size: 1rem;
+  }
+  
+  input,
+  textarea,
+  select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 4px;
+    font-family: $font-main;
+    font-size: 0.95rem;
+    transition: border-color $transition-speed ease, box-shadow $transition-speed ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba(255, 192, 203, 0.1);
+    }
+  }
+  
+  button {
+    align-self: center;
+  }
+}
+
+.btn-primary {
+  background-color: $primary-color;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: $font-main;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color $transition-speed ease, box-shadow $transition-speed ease;
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+  
+  &:hover {
+    background-color: #ff80ab;
+    box-shadow: $hover-shadow;
+  }
+  
+  &:active {
+    transform: scale(0.98);
+  }
+}

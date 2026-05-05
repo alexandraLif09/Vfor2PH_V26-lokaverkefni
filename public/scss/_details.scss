@@ -1,0 +1,55 @@
+.featured {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 2rem;
+  
+  > div {
+    max-width: 800px;
+    margin: 0 auto;
+    
+    h2 {
+      font-family: $font-heading;
+      color: $text-dark;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      font-family: $font-main;
+      color: $text-dark;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 1rem 0;
+    }
+    
+    div {
+      margin: 1.5rem 0;
+      
+      img {
+        width: 100%;
+        max-height: 500px;
+        object-fit: cover;
+        object-position: top;
+        border-radius: 8px;
+        box-shadow: $box-shadow;
+      }
+    }
+  }
+}
+
+.details-link {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 2rem;
+  background-color: $secondary-color;
+  color: $text-dark;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color $transition-speed ease, box-shadow $transition-speed ease;
+  
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    box-shadow: $hover-shadow;
+  }
+}

@@ -98,7 +98,7 @@ VALUES ('Emma Swan', TRUE, 1, 1, '/images/Emma.webp'),
     ('Robin Hood', FALSE, 2, 14, '/images/Robin.webp'), 
     ('Neal Cassidy', FALSE, 1, 15, '/images/Neal.jpg'),
     ('Ruby', TRUE, 1, 16, '/images/Ruby.webp'),
-    ('Widow Lucas', TRUE, 1, 17, '/images/Granny.webp'),
+    ('Widow Lucas', TRUE, 1, 17, '/images/Granny1.webp'),
     ('Malcolm', FALSE, 2, 18, '/images/Malcolm.jpg'),
     ('Felix', FALSE, 3, 19, '/images/Felix.gif');
 

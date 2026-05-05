@@ -1,0 +1,23 @@
+footer {
+  background-color: $secondary-color;
+  color: $text-dark;
+  padding: 2rem;
+  text-align: center;
+  margin-top: 3rem;
+  font-family: $font-main;
+  font-size: 0.9rem;
+  
+  p {
+    margin: 0.5rem 0;
+  }
+  
+  a {
+    color: $text-dark;
+    text-decoration: underline;
+    transition: opacity $transition-speed ease;
+    
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}

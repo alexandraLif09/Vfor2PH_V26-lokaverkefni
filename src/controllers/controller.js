@@ -29,7 +29,7 @@ const getPeopleDetails = async (req, res) => {
         });
     } catch (error) {
         console.error('Villa við að sækja staka manneskju.', error);
-        res.status(500).send('Kerfisvilla - get ekki hlaðað manneskju. (500)');
+        res.status(500).send('Kerfisvilla - get ekki hlaðið manneskju. (500)');
     }
 };
 
